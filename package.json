@@ -1,0 +1,24 @@
+{
+  "name": "redux-rt",
+  "version": "1.0.0",
+  "description": "Manage websockets with redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint && jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juvasquezg/redux-rt.git"
+  },
+  "keywords": [
+    "redux",
+    "websocket",
+    "socket.io"
+  ],
+  "author": "Julián Vásquez <juvasquez88@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juvasquezg/redux-rt/issues"
+  },
+  "homepage": "https://github.com/juvasquezg/redux-rt#readme"
+}
