@@ -12,7 +12,7 @@ const plugins = [
 
 const filename = `redux-rt${NODE_ENV === 'production' ? '.min' : ''}.js`
 
-NODE_ENV === 'production'  && plugins.push(
+NODE_ENV === 'production' && plugins.push( // eslint-disable-line no-unused-expressions
   new webpack.optimize.UglifyJsPlugin({
     compressor: {
       pure_getters: true,
