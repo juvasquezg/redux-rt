@@ -19,12 +19,12 @@ function createRT() {
 
     const { meta, payload, type } = action
 
-    if (state.global.socket && !types.indexOf(type) === -1) {
+    if (state.global.socket && !(types.indexOf(type) === -1)) {
       actions.map((a) => {
         if (meta) {
           if (!a.fields && a.type === type) {
             state.global.socket.emit('send', { meta, payload })
-          } else if (a.fields && !a.fields.indexOf(meta.field) === -1) {
+          } else if (a.fields && !(a.fields.indexOf(meta.field) === -1)) {
             state.global.socket.emit('send', { meta, payload })
           }
         }
