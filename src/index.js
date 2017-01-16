@@ -15,13 +15,18 @@ function createRT() {
       return action(dispatch, getState)
     }
 
-    if (state.global.socket) {
-      const { meta, payload, type } = action
+    const types = actions.map(a => a.type)
+
+    const { meta, payload, type } = action
+
+    if (state.global.socket && !types.indexOf(type) === -1) {
       actions.map((a) => {
-        if (!a.fields && a.type === type) {
-          state.global.socket.emit('send', { meta, payload })
-        } else if (!a.fields.indexOf(meta.field) === -1) {
-          state.global.socket.emit('send', { meta, payload })
+        if (meta) {
+          if (!a.fields && a.type === type) {
+            state.global.socket.emit('send', { meta, payload })
+          } else if (a.fields && !a.fields.indexOf(meta.field) === -1) {
+            state.global.socket.emit('send', { meta, payload })
+          }
         }
         return a
       })
