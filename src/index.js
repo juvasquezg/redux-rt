@@ -12,7 +12,7 @@ function createRT(actions) {
 
     if (state.global.socket && !(types.indexOf(type) === -1)) {
       actions.map((a) => {
-        if (meta) {
+        if (meta && meta.touch) {
           if (!a.fields && a.type === type) {
             state.global.socket.emit('redux-rt', { meta, payload })
           } else if (a.fields && !(a.fields.indexOf(meta.field) === -1) && a.type === type) {
